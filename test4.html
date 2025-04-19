@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gold</title>
+</head>
+<style>
+     
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #f8f9fb;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    .sidebar {
+      background: #fff;
+      width: 260px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .nav-btn, .quick-btn, .logout {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      background: none;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    .nav-btn:hover, .quick-btn:hover, .logout:hover, .active {
+      background: #e7f0ff;
+    }
+    .material-icons {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    .quick-actions, .last-orders {
+      margin-top: 20px;
+    }
+    .label {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+    .view {
+      font-size: 12px;
+      color: #007bff;
+      cursor: pointer;
+    }
+    .main {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .main-header h2 {
+      font-size: 24px;
+    }
+    .toggle {
+      background: #f0f0f0;
+      border-radius: 30px;
+      overflow: hidden;
+      display: flex;
+    }
+    .toggle-btn {
+      padding: 10px 20px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .toggle-btn.active {
+      background: #fff;
+      font-weight: 600;
+    }
+    .search {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 5px 10px;
+      border-radius: 8px;
+      margin: 0 20px;
+    }
+    .search input {
+      border: none;
+      outline: none;
+      padding-left: 10px;
+    }
+    .cart-profile {
+      display: flex;
+      align-items: center;
+    }
+    .cart {
+      position: relative;
+      background: none;
+      border: none;
+      margin-right: 10px;
+    }
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #000;
+      color: #fff;
+      border-radius: 50%;
+      padding: 3px 6px;
+      font-size: 10px;
+    }
+    .filters {
+      margin-bottom: 20px;
+    }
+    .filter-btn {
+      padding: 10px 20px;
+      margin-right: 10px;
+      background: #f0f0f0;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .filter-btn.active {
+      background: #000;
+      color: #fff;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .promo {
+      padding: 20px;
+      border-radius: 20px;
+      color: #000;
+      position: relative;
+    }
+    .promo.green {
+      background: #c0f1d7;
+    }
+    .promo.yellow {
+      background: #ffe28a;
+    }
+    .promo button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+    .product {
+      background: #fff;
+      padding: 15px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .small {
+      font-size: 12px;
+      color: #777;
+    }
+    .price {
+      margin-top: 5px;
+      font-weight: 600;
+      color: #2c2c2c;
+    }
+    
+  </style>
+</style>
+<body >
+    <div class="container">
+        <aside class="sidebar">
+          <h1 class="logo">BuyMore</h1>
+          <nav class="nav">
+            <button class="nav-btn active"><span class="material-icons">explore</span> Explore New</button>
+            <button class="nav-btn"><span class="material-icons">store</span> Clothing and Shoes</button>
+            <button class="nav-btn"><span class="material-icons">card_giftcard</span> Gifts and Living</button>
+            <button class="nav-btn"><span class="material-icons">lightbulb</span> Inspiration</button>
+          </nav>
+          <div class="quick-actions">
+            <p class="label">Quick actions</p>
+            <button class="quick-btn">+ Request for product</button>
+            <button class="quick-btn">+ Add member</button>
+          </div>
+          <div class="last-orders">
+            <p class="label">Last orders</p>
+            <p>DXC Nike... <span class="view">view order</span></p>
+            <p>Outerwear... <span class="view">view order</span></p>
+            <button class="view">See all</button>
+          </div>
+          <button class="logout">Log out</button>
+        </aside>
+    
+        <main class="main">
+          <header class="main-header">
+            <div>
+              <h2>37 Orders</h2>
+              <p>Last 7 days</p>
+            </div>
+            <div class="header-actions">
+              <div class="toggle">
+                <button class="toggle-btn active">Dashboard</button>
+                <button class="toggle-btn">Website</button>
+              </div>
+              <div class="search">
+                <span class="material-icons">search</span>
+                <input type="text" placeholder="Search" />
+              </div>
+              
+            </div>
+          </header>
+    
+          <div class="filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Men</button>
+            <button class="filter-btn">Women</button>
+          </div>
+    
+          <div class="products">
+            <div class="promo green">
+              <h3>GET UP TO 50% OFF</h3>
+              <button>Get Discount</button>
+              <h2>Dare to be different, embrace your uniqueness</h2>
+            </div>
+            <div class="promo yellow">
+              <h3>Winter's weekend</h3>
+              <p>keep it casual</p>
+            </div>
+            <div class="product">
+              <img src="slider3.png" alt="Product" />
+              <p class="small">Our Picks</p>
+              <h4>WMX Rubber Zebra sandal</h4>
+              <p class="price">$36</p>
+            </div>
+            <div class="product">
+              <img src="showes.png" alt="Product" />
+              <p class="small">Your Choice</p>
+              <h4>Supper Skiny jogger in brown</h4>
+              <p class="price">$89</p>
+            </div>
+            <div class="product">
+                <img src="bold2.png" alt="Product" />
+              <h4>Bring Bold Fashion</h4>
+              <p class="small">Layers on Layers</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </body>
+    </html>
