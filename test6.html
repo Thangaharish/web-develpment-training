@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fefefe;
+    }
+    .screen {
+      display: none;
+      padding: 20px;
+      min-height: 100vh;
+      background: white;
+      border-radius: 20px;
+      max-width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+    .screen.active {
+      display: block;
+      
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      
+    }
+    h2, h3, p {
+      margin: 10px 0;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .create-btn {
+      background-color: #007bff;
+      color: white;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .horizontal-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .task-card-small {
+      min-width: 130px;
+      padding: 10px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-left: 5px solid red;
+    }
+    .task-list .task-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 10px;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .task-info {
+      flex: 1;
+    }
+    .progress {
+      font-weight: bold;
+      background: #f5f5f5;
+      border-radius: 12px;
+      padding: 5px 10px;
+      color: red;
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+    .bar {
+      width: 4px;
+      height: 40px;
+      border-radius: 4px;
+    }
+    .bar.red { background: red; }
+    .bar.green { background: green; }
+    .bar.yellow { background: orange; }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+    }
+    .priority-btns span {
+      display: inline-block;
+      padding: 8px 12px;
+      margin: 10px 5px 0 0;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+    .high { background: red; }
+    .medium { background: orange; }
+    .low { background: green; }
+    .sub-task-btn {
+      display: inline-block;
+      margin-top: 10px;
+      color: #007bff;
+      cursor: pointer;
+    }
+    .footer-btns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .edit-btn {
+      background-color: #007bff;
+      color: white;
+    }
+    .clear-btn {
+      background-color: lightgray;
+    }
+    img{
+        width: 70px;
+        height: 70px;
+    }
+    img{
+        margin-right: 400px;
+    }
+</style>
+<body>
+    <div id="homeScreen" class="screen active">
+        <img src="poh,png.png" alt="absolute">
+
+        <div class="header">
+          <div class="avatar"></div>
+          <div>
+            
+            <section class="title">
+            <h3>Hello, <span style="color: crimson">Damian</span></h3>
+            <p>Manage your tasks!</p>
+            </section>
+          </div>
+        </div>
+        <input type="text" placeholder="Search...">
+    
+        <div class="section-title">Last added</div>
+        <div class="horizontal-scroll">
+          <div class="task-card-small">
+            <strong>Football Cup training drybling</strong>
+            <p style="font-size: 12px; color: gray;">3 tasks</p>
+          </div>
+          <div class="task-card-small" style="border-left-color: green;">
+            <strong>UI/UX App Design</strong>
+            <p style="font-size: 12px; color: gray;">3 tasks</p>
+          </div>
+          
+          
+        </div> 
+        <div class="section-title">Tasks list</div>
+        <div class="task-list">
+          <div class="task-card">
+            <div class="task-info">
+              <div class="progress">75%</div>
+              <div>UI/UX App Design</div>
+              <div style="font-size: 12px; color: gray;">3 tasks</div>
+            </div>
+            <div class="bar red"></div>
+          </div>
+          <div class="task-card">
+            <div class="task-info">
+              <div class="progress">75%</div>
+              <div>UI/UX App Design</div>
+              <div style="font-size: 12px; color: gray;">3 tasks</div>
+            </div>
+            <div class="bar green"></div>
+          </div>
+          <div class="task-card">
+            <div class="task-info">
+              <div class="progress">75%</div>
+              <div>View candidates’ resumes</div>
+              <div style="font-size: 12px; color: gray;">32 tasks</div>
+            </div>
+            <div class="bar yellow"></div>
+          </div>
+          <div class="task-card">
+            <div class="task-info">
+              <div class="progress">75%</div>
+              <div>Football Cup training Drybling</div>
+              <div style="font-size: 12px; color: gray;">3 tasks</div>
+            </div>
+            <div class="bar red"></div>
+          </div>
+        </div>
+        <button class="btn create-btn" onclick="goToScreen('createTaskScreen')">Create task</button>
+      </div>
+      <div id="createTaskScreen" class="screen">
+         <h2>Create new task</h2>
+         <input type="text" placeholder="Main task name">
+         <input type="datetime-local">
+         <div class="priority-btns">
+           <span class="high">High</span>
+           <span class="medium">Medium</span>
+           <span class="low">Low</span>
+         </div>
+          <input type="text" placeholder="Sub-task name">
+          <input type="text" placeholder="Sub-task name">
+           <div class="sub-task-btn">+ Add sub-task</div>
+              <textarea placeholder="Description"></textarea>
+          <div class="footer-btns">
+              <button class="btn edit-btn" onclick="goToScreen('editTaskScreen')">Add task</button>
+              <button class="btn clear-btn">Clear</button>
+         </div>
+     </div>
+     <script>
+        function goToScreen(screenId) {
+          document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+          document.getElementById(screenId).classList.add('active');
+        }
+      </script>
+ </body>
+</html>
