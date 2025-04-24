@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * { 
+        box-sizing: border-box; 
+        margin: 0; padding: 0; 
+        font-family: sans-serif; 
+    }
+    
+    .frame {
+      position: relative;
+      width: 375px;
+      height: 667px; 
+      margin: 20px auto;
+      border-radius: 36px;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      padding: 16px;
+    }
+    
+    .frame::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      height: 15px;
+      border-radius: 50%;
+    }
+
+    .content {
+      overflow-y: auto;
+      height: 100%;
+    }
+
+    body {
+      background: #f2f2f2; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    header h2 { font-size: 24px; margin: 1rem 0; }
+    input[type="text"] {
+      width: 100%; padding: 10px; margin-bottom: 1rem;
+      border: 1px solid #ccc; border-radius: 8px;
+    }
+
+    .categories {
+      display: flex; gap: 8px; overflow-x: auto; margin-bottom: 1rem;
+    }
+    .categories button {
+      padding: 6px 14px; border-radius: 20px; border: none;
+      background: #eee; cursor: pointer; white-space: nowrap;
+    }
+    .categories button.active {
+      background: orange; color: white;
+    }
+
+    .product-list {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .product-card {
+      background: #f9f9f9; border-radius: 12px; padding: 8px;
+      text-align: center; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .product-card img {
+      width: 100%; height: 120px; object-fit: cover; border-radius: 10px;
+    }
+
+    .details img {
+      width: 100%; border-radius: 12px; margin-bottom: 1rem;
+    }
+
+    .size-btns {
+      display: flex; gap: 6px; margin: 10px 0;
+    }
+
+    .size-btns button {
+      padding: 6px 12px; border: 1px solid #ccc; border-radius: 6px;
+      background: white; cursor: pointer;
+    }
+
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0;
+      width: 100%; max-width: 480px;
+      display: flex; justify-content: space-around;
+      padding: 12px 0;
+      background: #fff; border-top: 1px solid #ccc;
+    }
+
+    .bottom-nav button {
+      background: none; border: none; font-size: 18px; cursor: pointer;
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="content">
+      <div id="discover">
+        <header><h2>Discover</h2></header>
+        <input type="text" placeholder="Search Product" />
+        <div class="categories">
+          <button onclick="filterCategory('men')">Men</button>
+          <button onclick="filterCategory('women')" class="active">Women</button>
+          <button onclick="filterCategory('kids')">Kids</button>
+          <button onclick="filterCategory('accessories')">Accessories</button>
+        </div>
+        <div id="product-list" class="product-list"></div>
+      </div>
+
+      <div id="details" class="hidden">
+        <button onclick="showPage('discover')">← Back</button>
+        <div class="details">
+          <img id="detail-img" src="" alt="" />
+          <h3 id="detail-title"></h3>
+          <div class="size-btns">
+            <button>38</button><button>40</button><button>42</button><button>44</button>
+          </div>
+          <p><strong>Price:</strong> <span id="detail-price"></span></p>
+          <p><strong>Description:</strong> Nike Blazer Mid 77 with recycled materials and patchwork design.</p>
+        </div>
+      </div>
+
+  <script>
+    const products = {
+      men: [
+        { name: "Rosotro Shirt", price: "$24.00", image: "vintage.png" },
+        { name: "Men Jacket", price: "$30.00", image: "jacket.png" },
+        { name: "Striped Tee", price: "$44.00", image: "tee.png" },
+        { name: "Blue Polo", price: "$28.00", image: "polo.png" }
+      ],
+      women: [
+        { name: "Black Dress", price: "$54.00", image: "black.png" },
+        { name: "Red Dress", price: "$27.00", image: "red.png" },
+        { name: "Yellow Top", price: "$34.00", image: "yellow.png" },
+        { name: "Pink Handbag", price: "$64.00", image: "pink.png" },
+        { name: "Blue Dress", price: "$65.00", image: "blue.png" },
+        { name: "Green Summer", price: "$40.00", image: "green.png" }
+      ],
+      kids: [
+        { name: "Kids T-Shirt", price: "$30.00", image: "kids.png" },
+        { name: "Pink Kids Dress", price: "$28.00", image: "ttt.png" }
+      ],
+      accessories: [
+        { name: "Ladies Handbag", price: "$60.00", image: "bag1.png" },
+        { name: "Sunglasses", price: "$90.00", image: "sunglasses.png" }
+      ]
+    };
+
+    let currentProduct = null;
+
+    function showPage(page) {
+      document.getElementById("discover").classList.add("hidden");
+      document.getElementById("details").classList.add("hidden");
+      document.getElementById(page).classList.remove("hidden");
+    }
+
+    function filterCategory(category) {
+      document.querySelectorAll(".categories button").forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+
+      const productList = document.getElementById("product-list");
+      productList.innerHTML = "";
+      products[category].forEach(product => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" />
+          <h4>${product.name}</h4>
+          <p>${product.price}</p>
+        `;
+        card.onclick = () => openProductDetails(product);
+        productList.appendChild(card);
+      });
+    }
+
+    function openProductDetails(product) {
+      currentProduct = product;
+      document.getElementById("detail-img").src = product.image;
+      document.getElementById("detail-title").textContent = product.name;
+      document.getElementById("detail-price").textContent = product.price;
+      showPage("details");
+    }
+
+    window.onload = () => filterCategory('women');
+  </script>
+</body>
+</html>
