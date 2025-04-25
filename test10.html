@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body {
+      background: linear-gradient(135deg, #c2e9fb);
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    .screen {
+      width: 300px;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+    }
+    .stats div {
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      font-size: 14px;
+    }
+    .categories {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .category {
+      background: #fff;
+      border-radius: 15px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .category img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .leaderboard {
+      background: linear-gradient(to bottom, #2db9e4, #57c3eb);
+      color: white;
+      padding: 20px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+      position: relative;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+    .tabs div {
+      background: white;
+      color: #2db9e4;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-weight: bold;
+    }
+    .top-users {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .top-users .user {
+      text-align: center;
+    }
+    .user img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+    .crown {
+      width: 20px;
+      margin-bottom: 5px;
+    }
+    .rankings {
+      background: white;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      padding: 15px;
+    }
+    .rankings .row {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      align-items: center;
+      font-size: 14px;
+    }
+    .rankings .row img {
+      width: 25px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .quiz-question {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .progress {
+      height: 6px;
+      background: #ddd;
+      border-radius: 5px;
+      margin: 20px 0;
+      position: relative;
+    }
+    .progress::after {
+      content: "";
+      width: 40%;
+      background: orange;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      border-radius: 5px;
+    }
+    .timer {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #e0e0e0;
+      border-top: 6px solid #00bcd4;
+      border-radius: 50%;
+      margin: 10px auto;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .question {
+      background: #e6f7ff;
+      padding: 15px;
+      border-radius: 15px;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: left;
+      background: #f9f9f9;
+    }
+    .option.correct {
+      background: #d0f5ff;
+      border-color: #00bcd4;
+      color: #00bcd4;
+      font-weight: bold;
+    }
+    .option.wrong {
+      background: #ffe6e6;
+      border-color: #ff4d4d;
+      color: #ff4d4d;
+      font-weight: bold;
+    }
+    .next-btn {
+      margin-top: 20px;
+      background: #00bcd4;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen">
+    <div class="header">
+      <div>
+        <h3>Hi, John</h3>
+        <p style="font-size: 12px; color: gray;">Let's make this day productive</p>
+      </div>
+      <img src="" width="40" />
+    </div>
+    <div class="stats">
+      <div>
+        <p>🏆</p>
+        <p><strong>348</strong><br/>Ranking</p>
+      </div>
+      <div>
+        <p>🪙</p>
+        <p><strong>1209</strong><br/>Points</p>
+      </div>
+    </div>
+    <h4 style="margin: 20px 0 10px;">Let's play</h4>
+    <div class="categories">
+      <div class="category"><img src="foot.png"/><p>Sports<br/>50 questions</p></div>
+      <div class="category"><img src="chem.png"/><p>Chemistry<br/>30 questions</p></div>
+      <div class="category"><img src="maths.png"/><p>Math<br/>95 questions</p></div>
+      <div class="category"><img src="history.png"/><p>History<br/>128 questions</p></div>
+      <div class="category"><img src="bio.png"/><p>Biological</p></div>
+      <div class="category"><img src="map.png"/><p>Geography</p></div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="leaderboard">
+      <h3>Leaderboard</h3>
+      <div class="tabs">
+        <div>All time</div>
+        <div>This week</div>
+        <div>Month</div>
+      </div>
+      <div class="top-users">
+        <div class="user"><img src="p1.png"/><p>2<br/>Lennert</p></div>
+        <div class="user"><img src="p3.png"/><img class="crown" src="p4.png"/><p>1<br/>David</p></div>
+        <div class="user"><img src="p2.png"/><p>3<br/>Peter</p></div>
+      </div>
+    </div>
+    <div class="rankings">
+      <div class="row"><div><img src="pp1.png"/> Smith Carol</div><span style="color: #00bcd4;">91.736</span></div>
+      <div class="row"><div><img src="pp2.png"/> Stina Gunnarsdottir</div><span style="color: #00bcd4;">90.281</span></div>
+      <div class="row"><div><img src="pp3.png"/> Benedikt Safyulin</div><span style="color: #00bcd4;">88.463</span></div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="quiz-question">
+      <div class="progress"></div>
+      <p style="text-align: right; font-size: 12px;">5/10</p>
+      <div class="timer">30</div>
+      <div class="question">What is the most popular sport throughout the world?</div>
+      <div class="options">
+        <div class="option">Volleyball</div>
+        <div class="option correct">Football</div>
+        <div class="option wrong">Basketball</div>
+        <div class="option">Badminton</div>
+      </div>
+      <button class="next-btn">Next</button>
+    </div>
+  </div>
+
+</body>
+</html>
+
