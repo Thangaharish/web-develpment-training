@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 2rem;
+  background-color: #f9f7f4;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.form-section {
+  flex: 2;
+}
+
+.summary-section {
+  flex: 1;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+  margin-top: 0;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+input, select {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.payment-options label {
+  margin-bottom: 0.5rem;
+}
+
+.purchase-btn {
+  width: 100%;
+  background-color: #2d6a4f;
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+</style>
+<body>
+    <div class="container">
+        <div class="form-section">
+          <h2>Checkout</h2>
+    
+          <h3>Personal information:</h3>
+          <div class="row">
+            <input type="text" placeholder="First name" />
+            <input type="text" placeholder="Last name" />
+          </div>
+          <div class="row">
+            <input type="text" placeholder="Phone" />
+            <input type="email" placeholder="Email" />
+          </div>
+    
+          <h3>Delivery details:</h3>
+          <div class="row">
+            <select><option>United Kingdom (UK)</option></select>
+            <select><option>London</option></select>
+          </div>
+          <div class="row">
+            <input type="text" placeholder="Street" />
+            <input type="text" placeholder="Postcode" />
+          </div>
+          <div class="row">
+            <select><option>Without plastic</option></select>
+            <select><option>By courier</option></select>
+          </div>
+    
+          <h3>Payment:</h3>
+          <div class="payment-options">
+            <label><input type="radio" name="pay" /> Apple Pay</label>
+            <label><input type="radio" name="pay" /> Pay Pal</label>
+            <label><input type="radio" name="pay" checked /> Credit or debit card</label>
+          </div>
+          <div class="row">
+            <input type="text" placeholder="Card number" />
+            <input type="text" placeholder="Expiration date" />
+            <input type="text" placeholder="CVV code" />
+          </div>
+        </div>
+    
+        <div class="summary-section">
+          <h3>Your order:</h3>
+          <p>Subtotal: <strong>$60.30</strong></p>
+          <p>Delivery: <strong>$8.20</strong></p>
+          <p class="total">Total: <strong>$68.50</strong></p>
+          <button class="purchase-btn">Purchase</button>
+    
+          <div class="cart-item">
+            <img src="p1.png" alt="" />
+            <div>
+              <p>Jerky persimmon</p>
+              <small>1 kg</small>
+            </div>
+            <span>$8.60</span>
+          </div>
+    
+          <div class="cart-item">
+            <img src="p2.png" alt="" />
+            <div>
+              <p>Macadamia in the shell</p>
+              <small>2 kg</small>
+            </div>
+            <span>$28.00</span>
+          </div>
+    
+          <div class="cart-item">
+            <img src="p3.png" alt="" />
+            <div>
+              <p>Spiced nuts</p>
+              <small>500g</small>
+            </div>
+            <span>$7.20</span>
+          </div>
+    
+          <div class="cart-item">
+            <img src="p4.png" alt="" />
+            <div>
+              <p>Banana</p>
+              <small>4 kg</small>
+            </div>
+            <span>$5.70</span>
+          </div>
+    
+          <div class="cart-item">
+            <img src="p5.png" alt="" />
+            <div>
+              <p>Premium kiwifruit</p>
+              <small>1 kg</small>
+            </div>
+            <span>$4.00</span>
+          </div>
+    
+          <div class="cart-item">
+            <img src="p6.png" alt="" />
+            <div>
+              <p>Orange</p>
+              <small>2 kg</small>
+            </div>
+            <span>$6.80</span>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
