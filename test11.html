@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .header {
+      background-color: #fff;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header img {
+      height: 40px;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      border-right: 1px solid #ccc;
+      padding: 15px;
+    }
+    .main {
+      flex: 1;
+      padding: 15px;
+    }
+    .bus-card {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bus-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .bus-info h4, .bus-info p {
+      margin: 2px 0;
+    }
+    .button {
+      background-color: #e53935;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .seats-view {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+    }
+    .seat {
+      width: 30px;
+      height: 30px;
+      background-color: #e0e0e0;
+      margin: 4px;
+      display: inline-block;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .seat.booked {
+      background-color: #bdbdbd;
+      cursor: not-allowed;
+    }
+    .seat.selected {
+      background-color: #4caf50;
+      color: white;
+    }
+    .boarding-info {
+      margin-top: 20px;
+    }
+    .boarding-info h4 {
+      margin-bottom: 10px;
+    }
+    .boarding-info ul {
+      list-style: none;
+      padding: 0;
+    }
+    .boarding-info ul li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="" alt="Abhibus Logo" height="35">
+    <div>
+      <strong>Hyderabad</strong> → <strong>Bangalore</strong> | Departure: 27/04/2025
+      <button class="button">Search</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="sidebar">
+      <h4>Filters</h4>
+      <p>Bus Type</p>
+      <p>Price Range</p>
+      <p>Departure Time</p>
+      <p>Boarding Point</p>
+      <p>Dropping Point</p>
+    </div>
+
+    <div class="main">
+      <div id="bus-listing">
+        <div class="bus-card">
+          <div class="bus-info">
+            <h4>SL Travels</h4>
+            <p>2+1, Sleeper, NON-AC</p>
+            <p>19:00 - 05:00 | 10h</p>
+            <p><strong>From ₹1509</strong></p>
+          </div>
+          <button class="button" onclick="showSeats()">Select Seats</button>
+        </div>
+      </div>
+
+      <div id="seats-section" class="hidden">
+        <div class="seats-view">
+          <h3>SL Travels - Seat Selection</h3>
+          <div>
+            <div class="seat">1</div>
+            <div class="seat">2</div>
+            <div class="seat booked">3</div>
+            <div class="seat">4</div>
+            <div class="seat">5</div>
+            <div class="seat selected">6</div>
+            <div class="seat">7</div>
+          </div>
+
+          <div class="boarding-info">
+            <h4>Boarding Points</h4>
+            <ul>
+              <li>Musapet - 18:20</li>
+              <li>Kukatpally - 18:25</li>
+              <li>Vivekanandanagar Colony - 18:27</li>
+              <li>KPHB - 18:30</li>
+            </ul>
+          </div>
+        </div>
+        <button class="button" onclick="hideSeats()" style="margin-top: 10px;">Hide Seats</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSeats() {
+      document.getElementById("bus-listing").classList.add("hidden");
+      document.getElementById("seats-section").classList.remove("hidden");
+    }
+
+    function hideSeats() {
+      document.getElementById("seats-section").classList.add("hidden");
+      document.getElementById("bus-listing").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>  
