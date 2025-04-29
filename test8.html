@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f2f5fb;
+}
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  background: #0d1b2a;
+  color: white;
+  padding: 20px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.sidebar ul li.active,
+.sidebar ul li:hover {
+  color: white;
+  font-weight: bold;
+}
+
+.logout {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.course-progress {
+  margin-top: 20px;
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #3b82f6;
+}
+
+.widgets {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.widget {
+  background: #f0f4ff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.widget.add {
+  background: #dbeafe;
+  font-size: 24px;
+}
+
+.class-list {
+  margin-top: 30px;
+}
+
+.class {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.class button {
+  background: #3b82f6;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.events {
+  margin-top: 30px;
+}
+
+.event-cards {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card {
+  background: #f0f4ff;
+  padding: 12px;
+  border-radius: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.calendar {
+  width: 260px;
+  background: #ffffff;
+  padding: 20px;
+  margin: 10px 10px 10px 0;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ddd;
+}
+
+</style>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+          <h2>SMART</h2>
+          <nav>
+            <ul>
+              <li class="active">Dashboard</li>
+              <li>Courses</li>
+              <li>Group</li>
+              <li>Homework</li>
+              <li>Grades</li>
+              <li>Schedule</li>
+              <li>Message</li>
+              <li>Settings</li>
+            </ul>
+          </nav>
+          <button class="logout">Log out</button>
+        </aside>
+    
+        <main class="main-content">
+          <header>
+            <h1>Hi, GOLD</h1>
+            <input type="search" placeholder="Search" />
+            <img src="p8.png" alt="User avatar" class="avatar"/>
+          </header>
+    
+          <section class="course-progress">
+            <div class="progress-header">
+              <h2>Course duration</h2>
+              <div class="progress-bar">
+                <div class="progress" style="width: 73%;"></div>
+              </div>
+              <span class="progress-text">73%</span>
+            </div>
+            <div class="widgets">
+              <div class="widget">89%<br><small>GPA</small></div>
+              <div class="widget">93%<br><small>Curriculum</small></div>
+              <div class="widget">80%<br><small>Projects</small></div>
+              <div class="widget">99%<br><small>Attendance</small></div>
+              <div class="widget add">+</div>
+            </div>
+          </section>
+    
+          <section class="class-list">
+            <div class="class">
+              <div>
+                <h4>Emma Johnson</h4>
+                <p>Fundamentals of AI</p>
+              </div>
+              <span>25.03.2025 - 11:30 AM</span>
+              <button>Join</button>
+            </div>
+          </section>
+    
+          <section class="events">
+            <h3>Upcoming events</h3>
+            <div class="event-cards">
+              <div class="card">AI Battle<br><small>Sat, 2</small></div>
+              <div class="card">AI Hackathon<br><small>Mon, 24</small></div>
+              <div class="card">Workshop<br><small>Wed, 2</small></div>
+              <div class="card">AI Lecture<br><small>Thu, 3</small></div>
+            </div>
+          </section>
+        </main>
+    
+        <aside class="calendar">
+          <h3>March 2025</h3>
+          <!-- Static calendar or use library -->
+          <div class="calendar-box">[ Calendar UI here ]</div>
+        </aside>
+      </div>
+</body>
+</html>
