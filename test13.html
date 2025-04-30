@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {  
+        margin: 0;  
+        font-family: 'Arial', sans-serif;  
+        display: flex;  
+        background-color: #f0f4f8;  
+        color: #333;  
+      }  
+    
+      .sidebar {  
+        width: 240px;  
+        background-color: #dad5f7;  
+        display: flex;  
+        flex-direction: column;  
+        height: 100vh;  
+        padding: 20px;  
+        box-sizing: border-box;  
+      }  
+    
+      .sidebar h2 {  
+        margin-top: 0;  
+        font-size: 1.2em;  
+        margin-bottom: 20px;  
+      }  
+    
+      .sidebar button {  
+        padding: 10px;  
+        border: none;  
+        background-color: #8a6ad2;  
+        color: white;  
+        border-radius: 5px;  
+        cursor: pointer;  
+        margin-bottom: 20px;  
+      }  
+      
+      .sidebar button:hover {  
+        background-color: #44307a;  
+      }  
+    
+      .sidebar nav {  
+        flex-grow: 1;  
+      }  
+    
+      .nav-item {  
+        display: flex;  
+        align-items: center;  
+        padding: 10px 5px;  
+        cursor: pointer;  
+        border-radius: 5px;  
+      }  
+    
+      .nav-item:hover {  
+        background-color: #6f53b5;  
+      }  
+    
+      .main {  
+        flex: 1;  
+        padding: 20px;  
+        overflow-y: auto;  
+      }  
+    
+      .header {  
+        display: flex;  
+        justify-content: space-between;  
+        align-items: center;  
+        margin-bottom: 20px;  
+      }  
+    
+      .header h1 {  
+        margin: 0;  
+        font-size: 1.5em;  
+        font-weight: bold;  
+      }  
+    
+      .buttons-group button {  
+        padding: 8px 12px;  
+        border: none;  
+        border-radius: 4px;  
+        margin-left: 10px;  
+        cursor: pointer;  
+      }  
+    
+      .buttons-group button:hover {  
+        opacity: 0.9;  
+      }  
+    
+      .notifications {  
+        background-color: #9500ba;  
+        padding: 10px 15px;  
+        border-radius: 8px;  
+        color: white;  
+        font-weight: 600;  
+      }  
+    
+      .metrics {  
+        display: flex;  
+        justify-content: space-between;  
+        margin-top: 20px;  
+      }  
+    
+      .metric-box {  
+        background-color: white;  
+        border-radius: 10px;  
+        padding: 20px;  
+        width: 15%;  
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);  
+      }  
+    
+      .metric-title {  
+        font-weight: 600;  
+        margin-bottom: 10px;  
+      }  
+    
+      .metric-value {  
+        font-size: 1.8em;  
+        font-weight: bold;  
+      }  
+    
+      .customers-table {  
+        margin-top: 30px;  
+        border-radius: 10px;  
+        overflow: hidden;  
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);  
+      }  
+    
+      table {  
+        width: 100%;  
+        border-collapse: collapse;  
+      }  
+    
+      thead {  
+        background-color: #f3f3f3;  
+      }  
+    
+      th, td {  
+        padding: 15px;  
+        text-align: left;  
+      }  
+    
+      th {  
+        font-weight: 600;  
+      }  
+    
+      tbody tr:hover {  
+        background-color: #99c0e7;  
+      }  
+    
+      .status-badge {  
+        padding: 4px 8px;  
+        border-radius: 4px;  
+        font-size: 0.8em;  
+        color: white;  
+      }  
+    
+      .Customer {  
+        background-color: #08e07b;  
+      }  
+    
+      .Churned {  
+        background-color: #f70c10;  
+      }  
+    
+      .row-actions button {  
+        background: none;  
+        border: none;  
+        cursor: pointer;  
+        margin-left: 8px;  
+      }  
+    
+      .search-pagination {  
+        display: flex;  
+        justify-content: space-between;  
+        align-items: center;  
+        margin-top: 20px;  
+      }  
+    
+      input[type="text"] {  
+        padding: 8px 12px;  
+        border-radius: 4px;  
+        border: 1px solid #ccc;  
+        width: 200px;  
+      }  
+    
+      .pagination {  
+        display: flex;  
+        gap: 10px;  
+      }  
+    
+    </style>  
+    </head>  
+    <body>  
+    
+    <div class="sidebar">  
+      <h2>Untitled UI</h2>  
+      <button>+ Add Customer</button>  
+      <nav>  
+        <div class="nav-item">Home</div>  
+        <div class="nav-item">Notifications</div>  
+        <div class="nav-item">Projects</div>  
+        <div class="nav-item">Tasks</div>  
+        <div class="nav-item">Reporting</div>  
+        <div class="nav-item">Users</div>  
+        <div class="nav-item">Support</div>  
+        <div class="nav-item">Settings</div>  
+      </nav>  
+      <div style="margin-top:auto;">  
+        <div style=" display:flex; align-items:center;">  
+          <img src="" style="border-radius:50%; margin-right:10px;">  
+          <div>  
+            <div style="font-weight:600;">Frankie Sullivan</div>  
+            <div style="font-size:0.9em;">@frankie</div>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+    
+    <div class="main">  
+    
+      <div class="header">  
+        <h1>Customers</h1>  
+        <div class="buttons-group">  
+          <button style="background-color:#8a6ad2; color:white;">Import</button>  
+          <button style="background-color:#8a6ad2; color:white;">+ Add Customer</button>  
+        </div>  
+      </div>  
+      
+      <div class="notifications" style="margin-top:10px;">  
+        Customer  
+      </div>  
+    
+      <div class="metrics">  
+        <div class="metric-box">  
+          <div class="metric-title">Total Customers</div>  
+          <div class="metric-value">2,420 ↑ 20%</div>  
+        </div>  
+        <div class="metric-box">  
+          <div class="metric-title">Members</div>  
+          <div class="metric-value">1,210 ↑ 15%</div>  
+        </div>  
+        <div class="metric-box">  
+          <div class="metric-title">Active Now</div>  
+          <div class="metric-value">316</div>  
+        </div>  
+      </div>  
+    
+      <div class="customers-table" style="margin-top:30px;">  
+        <table>  
+          <thead>  
+            <tr>  
+              <th><input type="checkbox" checked></th>  
+              <th>Company</th>  
+              <th>Status</th>  
+              <th>About</th>  
+              <th>Users</th>  
+              <th>License use</th>  
+            </tr>  
+          </thead>  
+          <tbody>  
+            <tr>  
+              <td><input type="checkbox" checked></td>  
+              <td>Catalog</td>  
+              <td><div class="status-badge Customer">Customer</div></td>  
+              <td>Content curating app</td>  
+              <td>  
+                <div style="display:flex;">  
+                  <img src="" style="border-radius:50%; margin-right:5px;">  
+                  <img src="" style="border-radius:50%; margin-right:5px;">  
+                  <img src="" style="border-radius:50%;">  
+                </div>  
+              </td>  
+              <td>  
+                <div style="background-color:#9bfac9; height:8px; width:50%; border-radius:4px;"></div>  
+              </td>  
+              <td class="row-actions">  
+                <button title="Edit">✏️</button>  
+                <button title="Delete">🗑️</button>  
+              </td>  
+            </tr>  
+            <tr>  
+              <td><input type="checkbox"></td>  
+              <td>Catalog</td>  
+              <td><div class="status-badge Churned">Churned</div></td>  
+              <td>Design software</td>  
+              <td>  
+                <div style="display:flex;">  
+                  <img src="" style="border-radius:50%; margin-right:5px;">  
+                  <img src="" style="border-radius:50%; margin-right:5px;">  
+                </div>  
+              </td>  
+              <td>  
+                <div style="background-color:#feb1b6; height:8px; width:30%; border-radius:4px;"></div>  
+              </td>  
+              <td class="row-actions">  
+                <button title="Edit">✏️</button>  
+                <button title="Delete">🗑️</button>  
+              </td>  
+            </tr> 
+            <tr>  
+                <td><input type="checkbox"></td>  
+                <td>Catalog</td>  
+                <td><div class="status-badge Churned">Churned</div></td>  
+                <td>Design software</td>  
+                <td>  
+                  <div style="display:flex;">  
+                    <img src="" style="border-radius:50%; margin-right:5px;">  
+                    <img src="" style="border-radius:50%; margin-right:5px;"> 
+                    <img src="" style="border-radius:50%; margin-right:5px;">  
+                    <img src="" style="border-radius:50%; margin-right:5px;">  
+                    <img src="" style="border-radius:50%; margin-right:5px;">  
+                  </div>  
+                </td>  
+                <td>  
+                  <div style="background-color:#d28a8e; height:12px; width:30%; border-radius:4px;"></div>  
+                </td>  
+                <td class="row-actions">  
+                  <button title="Edit">✏️</button>  
+                  <button title="Delete">🗑️</button>  
+                </td>  
+              </tr> 
+          </tbody>  
+        </table>  
+      </div>  
+    
+      <div class="search-pagination" style="margin-top:20px;">  
+        <div class="search-box">  
+          <input type="text" placeholder="Search" />  
+        </div>  
+        <div class="pagination">  
+          <button>Previous</button>  
+          <button>Next</button>  
+        </div>  
+      </div>  
+    
+    </div>
+
